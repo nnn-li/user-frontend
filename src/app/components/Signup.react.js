@@ -18,7 +18,7 @@ const Login = React.createClass({
 
     render() {
         return (
-            <div className="signup animated fadeIn">
+            <div className="signup animated fadeInUp">
                 <div className="header">
                     <h1>Signup</h1>
                 </div>
