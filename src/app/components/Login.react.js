@@ -18,6 +18,9 @@ const Login = React.createClass({
     render() {
         return (
             <div className="login">
+                <div className="header">
+                    <h1>Login</h1>
+                </div>
                 <form>
                     <input type="text" placeholder="name"/>
                     <input type="text" placeholder="password"/>
