@@ -1,16 +1,33 @@
 .login {
-    width: 250px;
+    width: 300px;
 
     .header {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
 
     form {
         display: flex;
         flex-direction: column;
 
-        >* {
-            margin: 10px 0px;
+        input {
+            padding: 10px 20px;
+            color: $dark3;
         }
+
+        .field {
+            margin: 0px;
+            border-bottom: 1px solid $dark6;
+        }
+
+        .button {
+            color: white;
+            background-color: $green3;
+            font-weight: 400;
+        }
+    }
+
+    .footer {
+        margin: 10px 0px;
+        font-size: .8rem;
     }
 }

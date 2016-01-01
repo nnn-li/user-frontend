@@ -20,15 +20,16 @@ const Login = React.createClass({
         return (
             <div className="login animated fadeIn">
                 <div className="header">
-                    <h1>Login</h1>
+                    <h1>Signup</h1>
                 </div>
                 <form>
                     <input className="field" type="text" placeholder="Email"/>
                     <input className="field" type="password" placeholder="Password"/>
-                    <input className="button" type="submit" value="Login"/>
+                    <input className="field" type="password" placeholder="Confirm Password"/>
+                    <input className="button" type="submit" value="Signup"/>
                 </form>
                 <div className="footer">
-                    Don't have an account? <Link to={'/signup'}>Sign up!</Link>
+                    Already have an account? <Link to={'/login'}>Login!</Link>
                 </div>
             </div>
         );
