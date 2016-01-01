@@ -8,7 +8,6 @@ const history = createHistory();
 const router = (
     <Router history={history}>
         <Route path="/" component={App}>
-            <IndexRedirect to="/main" />
         </Route>
     </Router>
 );
