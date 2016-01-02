@@ -18,7 +18,7 @@ const App = React.createClass({
 
     render() {
         return (
-            <div className="content xy-center dark1-bg white-color">
+            <div className="app content xy-center white-color">
                 {this.props.children}
             </div>
        );
