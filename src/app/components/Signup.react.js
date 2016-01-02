@@ -24,18 +24,27 @@ const Login = React.createClass({
                 </div>
                 {this.renderError()}
                 <form action="" onSubmit={this.handleSubmit}>
-                    <input className="field"
-                        ref="email"
-                        type="text"
-                        placeholder="Email"/>
-                    <input className="field"
-                        ref="password"
-                        type="password"
-                        placeholder="Password"/>
-                    <input className="field"
-                        ref="confirmPassword"
-                        type="password"
-                        placeholder="Confirm Password"/>
+                    <div className="field-wrapper">
+                        <i className="fa fa-envelope-o"></i>
+                        <input className="field"
+                            ref="email"
+                            type="text"
+                            placeholder="Email"/>
+                    </div>
+                    <div className="field-wrapper">
+                        <i className="fa fa-lock"></i>
+                        <input className="field"
+                            ref="password"
+                            type="password"
+                            placeholder="Password"/>
+                    </div>
+                    <div className="field-wrapper">
+                        <i className="fa fa-lock"></i>
+                        <input className="field"
+                            ref="confirmPassword"
+                            type="password"
+                            placeholder="Confirm Password"/>
+                    </div>
                     <input className="button"
                         type="submit"
                         value="Signup"/>
@@ -50,7 +59,7 @@ const Login = React.createClass({
     renderError() {
         if (!this.state.error) return;
         return (
-            <div className="error">
+            <div className="error animated fadeIn">
                 {this.state.error}
             </div>
         );

@@ -1,6 +1,6 @@
 .login,
 .signup {
-    width: 300px;
+    width: 350px;
 
     .header {
         margin-bottom: 30px;
@@ -11,25 +11,38 @@
         flex-direction: column;
 
         input {
-            padding: 10px 20px;
+            padding: 20px 20px;
+            padding-left: 0px;
             color: $dark3;
         }
 
-        .field {
-            margin: 0px;
+        .field-wrapper {
+            padding-left: 20px;
+            background-color: white;
             border-bottom: 1px solid rgba($dark6, 0.5);
+
+            i {
+                width: 10px;
+                color: $dark3;
+                margin-right: 20px;
+            }
+        }
+        .field {
+            width: 250px;
+            margin: 0px;
         }
 
         .button {
+            padding: 20px 20px;
             color: white;
-            background-color: $green3;
-            font-weight: 400;
+            background: linear-gradient(left, $green1 10%, $blue1 100%);
         }
     }
 
     .footer {
-        margin: 10px 0px;
+        margin: 20px 0px;
         font-size: .8rem;
+        text-align: right;
     }
 
     .error {
