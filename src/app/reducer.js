@@ -19,6 +19,10 @@ function user(state = {
     isFetching: false,
 }, action) {
     switch(action.type) {
+    case 'LOGIN':
+        return Object.assign({}, state, {
+            isFetching: false,
+        });
     case 'SIGNUP':
         return Object.assign({}, state, {
             isFetching: false,

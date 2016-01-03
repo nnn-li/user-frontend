@@ -4,14 +4,21 @@ import { Router, Route, Link, IndexRedirect } from 'react-router';
 import store from '../store.js';
 import actions from '../actions.js';
 
-const Login = React.createClass({
+let unsubscribe;
+
+const Signup = React.createClass({
 
     getInitialState() {
         return store.getState();
     },
 
     componentDidMount() {
-        store.subscribe(this._onChange);
+        unsubscribe = store.subscribe(this._onChange);
+    },
+
+    componentWillUnmount() {
+        if (!unsubscribe) return;
+        unsubscribe();
     },
 
     _onChange() {
@@ -102,4 +109,4 @@ const Login = React.createClass({
 
 });
 
-export default Login;
+export default Signup;
