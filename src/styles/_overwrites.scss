@@ -5,6 +5,17 @@ a:active {
     color: inherit;
 }
 
+button,
+button:hover,
+button:active {
+    border: none;
+    outline: none;
+}
+
+button:disabled {
+    opacity: 0.5;
+}
+
 // remove input styling
 input, textarea{
     border: none;

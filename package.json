@@ -42,10 +42,13 @@
   },
   "dependencies": {
     "animate.css": "^3.4.0",
+    "axios": "^0.8.1",
+    "es6-promise": "^3.0.2",
     "font-awesome": "^4.4.0",
     "highlight.js": "^8.9.1",
     "history": "^1.13.0",
     "html": "0.0.10",
+    "isomorphic-fetch": "^2.2.0",
     "jquery": "^2.1.4",
     "normalize.css": "^3.0.3",
     "react": "^0.14.1",

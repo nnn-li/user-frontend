@@ -1,28 +1,33 @@
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import { Router, Route, Link, IndexRedirect } from 'react-router';
+import store from '../store.js';
+import actions from '../actions.js';
 
 const Login = React.createClass({
 
     getInitialState() {
-        return {};
+        return store.getState();
     },
 
     componentDidMount() {
-
+        store.subscribe(this._onChange);
     },
 
-    componentWillUnmount() {
-
+    _onChange() {
+        this.setState(store.getState());
     },
 
     render() {
+        const user = this.state.user;
+
         return (
             <div className="signup animated fadeInUp">
                 <div className="header">
                     <h1>Signup</h1>
                 </div>
-                {this.renderError()}
+                {this.renderError(user)}
+
                 <form action="" onSubmit={this.handleSubmit}>
                     <div className="field-wrapper">
                         <i className="fa fa-envelope-o"></i>
@@ -45,10 +50,10 @@ const Login = React.createClass({
                             type="password"
                             placeholder="Confirm Password"/>
                     </div>
-                    <input className="button"
-                        type="submit"
-                        value="Signup"/>
+
+                    {this.renderButton(user)}
                 </form>
+
                 <div className="footer">
                     Already have an account? <Link to={'/login'}>Login!</Link>
                 </div>
@@ -56,53 +61,43 @@ const Login = React.createClass({
         );
     },
 
-    renderError() {
-        if (!this.state.error) return;
+    renderButton(user) {
+        const disabled = user.isFetching;
+
+        return (
+            <button className="button" type="submit" disabled={disabled}>
+                {() => {
+                    return (user.isFetching)
+                    ? (
+                        <i className="fa fa-spinner fa-spin"></i>
+                    )
+                    : 'Signup';
+                }()}
+            </button>
+        );
+    },
+
+    renderError(user) {
+        if (!user.error) return;
         return (
             <div className="error animated fadeIn">
-                {this.state.error}
+                {user.error}
             </div>
         );
     },
 
     handleSubmit(event) {
         event.preventDefault();
-        this.setState({
-            error: undefined
-        });
 
         const formData = {
-            email: findDOMNode(this.refs.email).value,
+            username: findDOMNode(this.refs.email).value,
             password: findDOMNode(this.refs.password).value,
             confirmPassword: findDOMNode(this.refs.confirmPassword).value,
         };
 
-        for (let key in formData) {
-            if (!formData[key]) {
-                return this.setState({
-                    error: 'Must provide all fields.',
-                });
-            }
-        }
-
-        const emailRegex = /^[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9]+$/;
-        if (!emailRegex.test(formData.email)) {
-            return this.setState({
-                error: 'Must provide properly formated email.',
-            });
-        }
-
-        if (formData.password.length < 6) {
-            return this.setState({
-                error: 'Password must have at least 6 characters.',
-            });
-        }
-
-        if (formData.password !== formData.confirmPassword) {
-            return this.setState({
-                error: 'Password must match.',
-            });
-        }
+        store.dispatch(actions.user.signup({
+            formData,
+        }));
     },
 
 });

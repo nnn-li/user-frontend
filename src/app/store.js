@@ -12,9 +12,7 @@ const createStoreWithMiddleware = applyMiddleware(
     loggerMiddleware
 )(createStore);
 
-const defaultState = {
-
-};
+const defaultState = {};
 
 const store = createStoreWithMiddleware(rootReducer, defaultState);
 
