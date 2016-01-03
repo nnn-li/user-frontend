@@ -32,6 +32,11 @@ function user(state = {
             isFetching: false,
             error: action.error,
         });
+    case 'CLEAR_ERROR':
+        return Object.assign({}, state, {
+            isFetching: false,
+            error: undefined,
+        });
     case 'FETCHING':
         return Object.assign({}, state, {
             isFetching: true,

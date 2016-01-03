@@ -18,6 +18,7 @@ const Signup = React.createClass({
 
     componentWillUnmount() {
         if (!unsubscribe) return;
+        store.dispatch(actions.user.clearError());
         unsubscribe();
     },
 

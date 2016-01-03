@@ -13,11 +13,12 @@ const Login = React.createClass({
     },
 
     componentDidMount() {
-        store.subscribe(this._onChange);
+        unsubscribe = store.subscribe(this._onChange);
     },
 
     componentWillUnmount() {
         if (!unsubscribe) return;
+        store.dispatch(actions.user.clearError());
         unsubscribe();
     },
 

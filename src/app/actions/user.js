@@ -49,6 +49,12 @@ function checkFormData(formData) {
 
 module.exports = {
 
+    clearError() {
+        return {
+            type: 'CLEAR_ERROR',
+        };
+    },
+
     login(params) {
         return dispatch => {
             dispatch(fetchingUser());
