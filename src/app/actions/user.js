@@ -19,6 +19,7 @@ function signupSuccessHandler(res) {
 function loginSuccessHandler(res) {
     return {
         type: 'LOGIN',
+        data: res.data,
     };
 }
 
@@ -70,6 +71,7 @@ module.exports = {
             return axios.post(config.serverUrl + '/authenticate', formData)
             .then(res => {
                 dispatch(loginSuccessHandler(res));
+                dispatch(pushPath('/default'));
             })
             .catch(e => {
                 dispatch(errorHandler(e.data.message));

@@ -13,14 +13,30 @@ const history = createHistory();
 
 syncReduxAndRouter(history, store);
 
+function toDefault(nextState, replaceState) {
+    const user = store.getState().user;
+    if (!user || !user.data) {
+        return;
+    }
+    replaceState({nextPathname: nextState.location.pathname}, '/default');
+}
+
+function requireAuth(nextState, replaceState) {
+    const user = store.getState().user;
+    if (user && user.data) {
+        return;
+    }
+    replaceState({nextPathname: nextState.location.pathname}, '/login');
+}
+
 const router = (
     <Provider store={store}>
         <Router history={history}>
             <Route path="/" component={App}>
                 <IndexRedirect to="/login" />
-                <Route path="login" component={Login}></Route>
-                <Route path="signup" component={Signup}></Route>
-                <Route path="default" component={Default}></Route>
+                <Route path="login" component={Login} onEnter={toDefault}></Route>
+                <Route path="signup" component={Signup} onEnter={toDefault}></Route>
+                <Route path="default" component={Default} onEnter={requireAuth}></Route>
             </Route>
         </Router>
     </Provider>

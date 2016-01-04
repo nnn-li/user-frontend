@@ -23,6 +23,7 @@ function user(state = {
     case 'LOGIN':
         return Object.assign({}, state, {
             isFetching: false,
+            data: action.data,
         });
     case 'SIGNUP':
         return Object.assign({}, state, {
