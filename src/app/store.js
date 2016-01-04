@@ -12,6 +12,7 @@ const createStoreWithMiddleware = applyMiddleware(
     loggerMiddleware
 )(createStore);
 
+// can do local storage stuff here
 const defaultState = {};
 
 const store = createStoreWithMiddleware(rootReducer, defaultState);
