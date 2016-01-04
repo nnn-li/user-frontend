@@ -17,7 +17,7 @@ const App = React.createClass({
 
     render() {
         return (
-            <div className="app content xy-center white-color">
+            <div className="app content">
                 {this.props.children}
             </div>
        );
