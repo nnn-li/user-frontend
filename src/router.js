@@ -5,8 +5,8 @@ import { syncReduxAndRouter } from 'redux-simple-router';
 import { createHistory } from 'history';
 import store from './app/store.js';
 import App from './app/App.react.js';
-import Login from './app/components/Login.react.js';
-import Signup from './app/components/Signup.react.js';
+import Login from './app/pages/Login.react.js';
+import Signup from './app/pages/Signup.react.js';
 import Default from './app/components/Default.react.js';
 import NoMatch from './app/pages/NoMatch.react.js';
 
