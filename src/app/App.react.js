@@ -1,5 +1,6 @@
 import React from 'react';
 import store from './store.js';
+import Navbar from './components/Navbar.react.js';
 
 const App = React.createClass({
 
@@ -18,6 +19,7 @@ const App = React.createClass({
     render() {
         return (
             <div className="app content">
+                <Navbar></Navbar>
                 {this.props.children}
             </div>
        );
