@@ -27,6 +27,7 @@ function user(state = {
     case 'SIGNUP':
         return Object.assign({}, state, {
             isFetching: false,
+            data: action.data,
         });
     case 'ERROR':
         return Object.assign({}, state, {

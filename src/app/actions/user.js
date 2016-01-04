@@ -1,5 +1,6 @@
 import config from '../config.js';
 import axios from 'axios';
+import { pushPath } from 'redux-simple-router';
 
 function errorHandler(error) {
     return {
@@ -11,6 +12,7 @@ function errorHandler(error) {
 function signupSuccessHandler(res) {
     return {
         type: 'SIGNUP',
+        data: res.data,
     };
 }
 
@@ -88,6 +90,7 @@ module.exports = {
             return axios.post(config.serverUrl + '/signup', formData)
             .then(res => {
                 dispatch(signupSuccessHandler(res));
+                dispatch(pushPath('/default'));
             })
             .catch(e => {
                 dispatch(errorHandler(e.data.message));
