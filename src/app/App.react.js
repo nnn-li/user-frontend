@@ -1,6 +1,5 @@
 import React from 'react';
 import store from './store.js';
-import Login from './components/Login.react.js';
 
 const App = React.createClass({
 

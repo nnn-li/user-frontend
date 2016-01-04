@@ -31,40 +31,42 @@ const Signup = React.createClass({
         const user = this.state.user;
 
         return (
-            <div className="signup animated fadeInUp">
-                <div className="header">
-                    <h1>Signup</h1>
-                </div>
-                {this.renderError(user)}
-
-                <form action="" onSubmit={this.handleSubmit}>
-                    <div className="field-wrapper">
-                        <i className="fa fa-envelope-o"></i>
-                        <input className="field"
-                            ref="email"
-                            type="text"
-                            placeholder="Email"/>
+            <div className="content xy-center">
+                <div className="signup animated fadeInUp">
+                    <div className="header">
+                        <h1>Signup</h1>
                     </div>
-                    <div className="field-wrapper">
-                        <i className="fa fa-lock"></i>
-                        <input className="field"
-                            ref="password"
-                            type="password"
-                            placeholder="Password"/>
-                    </div>
-                    <div className="field-wrapper">
-                        <i className="fa fa-lock"></i>
-                        <input className="field"
-                            ref="confirmPassword"
-                            type="password"
-                            placeholder="Confirm Password"/>
-                    </div>
+                    {this.renderError(user)}
 
-                    {this.renderButton(user)}
-                </form>
+                    <form action="" onSubmit={this.handleSubmit}>
+                        <div className="field-wrapper">
+                            <i className="fa fa-envelope-o"></i>
+                            <input className="field"
+                                ref="email"
+                                type="text"
+                                placeholder="Email"/>
+                        </div>
+                        <div className="field-wrapper">
+                            <i className="fa fa-lock"></i>
+                            <input className="field"
+                                ref="password"
+                                type="password"
+                                placeholder="Password"/>
+                        </div>
+                        <div className="field-wrapper">
+                            <i className="fa fa-lock"></i>
+                            <input className="field"
+                                ref="confirmPassword"
+                                type="password"
+                                placeholder="Confirm Password"/>
+                        </div>
 
-                <div className="footer">
-                    Already have an account? <Link to={'/login'}>Login!</Link>
+                        {this.renderButton(user)}
+                    </form>
+
+                    <div className="footer">
+                        Already have an account? <Link to={'/login'}>Login!</Link>
+                    </div>
                 </div>
             </div>
         );

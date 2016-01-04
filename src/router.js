@@ -8,6 +8,7 @@ import App from './app/App.react.js';
 import Login from './app/components/Login.react.js';
 import Signup from './app/components/Signup.react.js';
 import Default from './app/components/Default.react.js';
+import NoMatch from './app/components/NoMatch.react.js';
 
 const history = createHistory();
 
@@ -32,12 +33,13 @@ function requireAuth(nextState, replaceState) {
 const router = (
     <Provider store={store}>
         <Router history={history}>
+            <Route path="login" component={Login} onEnter={toDefault}></Route>
+            <Route path="signup" component={Signup} onEnter={toDefault}></Route>
             <Route path="/" component={App}>
                 <IndexRedirect to="/login" />
-                <Route path="login" component={Login} onEnter={toDefault}></Route>
-                <Route path="signup" component={Signup} onEnter={toDefault}></Route>
                 <Route path="default" component={Default} onEnter={requireAuth}></Route>
             </Route>
+            <Route path="*" component={NoMatch}></Route>
         </Router>
     </Provider>
 );

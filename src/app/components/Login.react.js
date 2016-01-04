@@ -30,33 +30,35 @@ const Login = React.createClass({
         const user = this.state.user;
 
         return (
-            <div className="login animated fadeInUp">
-                <div className="header">
-                    <h1>Login</h1>
-                </div>
-                {this.renderError(user)}
-
-                <form action="" onSubmit={this.handleSubmit}>
-                    <div className="field-wrapper">
-                        <i className="fa fa-envelope-o"></i>
-                        <input className="field"
-                            ref="email"
-                            type="text"
-                            placeholder="Email"/>
+            <div className="content xy-center">
+                <div className="login animated fadeInUp">
+                    <div className="header">
+                        <h1>Login</h1>
                     </div>
-                    <div className="field-wrapper">
-                        <i className="fa fa-lock"></i>
-                        <input className="field"
-                            ref="password"
-                            type="password"
-                            placeholder="Password"/>
+                    {this.renderError(user)}
+
+                    <form action="" onSubmit={this.handleSubmit}>
+                        <div className="field-wrapper">
+                            <i className="fa fa-envelope-o"></i>
+                            <input className="field"
+                                ref="email"
+                                type="text"
+                                placeholder="Email"/>
+                        </div>
+                        <div className="field-wrapper">
+                            <i className="fa fa-lock"></i>
+                            <input className="field"
+                                ref="password"
+                                type="password"
+                                placeholder="Password"/>
+                        </div>
+
+                        {this.renderButton(user)}
+                    </form>
+
+                    <div className="footer">
+                        Already have an account? <Link to={'/signup'}>Signup!</Link>
                     </div>
-
-                    {this.renderButton(user)}
-                </form>
-
-                <div className="footer">
-                    Already have an account? <Link to={'/signup'}>Signup!</Link>
                 </div>
             </div>
         );
