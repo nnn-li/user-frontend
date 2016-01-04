@@ -8,12 +8,24 @@ let unsubscribe;
 
 const Signup = React.createClass({
 
+    contextTypes: {
+        router: React.PropTypes.func.isRequired,
+    },
+
     getInitialState() {
         return store.getState();
     },
 
     componentDidMount() {
         unsubscribe = store.subscribe(this._onChange);
+    },
+
+    componentWillUpdate() {
+        const { user } = this.state;
+        const router = this.context.router;
+        debugger;
+        if (!user) return;
+        router.transitionTo('default');
     },
 
     componentWillUnmount() {

@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { routeReducer } from 'redux-simple-router';
 
 function test(state = {
     foo: 'bar',
@@ -47,6 +48,7 @@ function user(state = {
 }
 
 const rootReducer = combineReducers({
+    routing: routeReducer,
     test,
     user,
 });
