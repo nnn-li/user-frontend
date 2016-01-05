@@ -1,6 +1,7 @@
 import store from '../store.js';
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
+import styles from './default.css';
 
 // reference function to unsubscribe from redux store
 let unsubscribe;
@@ -26,7 +27,7 @@ const Default = React.createClass({
 
     render() {
         return (
-            <div>
+            <div className={styles.default + ' debug'}>
                 Hello
             </div>
         );
